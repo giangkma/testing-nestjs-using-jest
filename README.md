@@ -1,4 +1,4 @@
-# Alight server
+
 
 Using [Nest](https://github.com/nestjs/nest) framework.
 
