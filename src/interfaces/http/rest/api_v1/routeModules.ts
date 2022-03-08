@@ -1,0 +1,11 @@
+export { AuthenticationModule } from './auth/auth.module';
+export { CreatorModule } from './creator/creator.module';
+export { ConsumerModule } from './consumer/consumer.module';
+export { SessionModule } from './session/session.module';
+export { NextOfKinModule } from './nextOfKin/nextOfKin.module';
+export { OrganizationModule } from './organization/organization.module';
+export { PersonalMediaModule } from './personalMedia/personalMedia.module';
+export { SessionLogModule } from './sessionLog/sessionLog.module';
+export { InCompleteSessionModule } from './inCompleteSession/inCompleteSession.module';
+export { CommonMediaModule } from './commonMedias/commonMedia.module';
+export { ContactModule } from './contact/contact.module';

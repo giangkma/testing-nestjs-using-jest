@@ -1,0 +1,64 @@
+version: '3.7'
+
+services:
+    webapp:
+        container_name: alight_server_container
+
+        build:
+            context: .
+            dockerfile: Dockerfile
+
+        restart: unless-stopped
+
+        environment:
+            PORT: 3000
+            DATABASE_USERNAME: root
+            DATABASE_PASSWORD: alight-mongo-root-pwd
+            DATABASE_AUTH_SOURCE: admin
+            DATABASE_HOST: mongodb
+            DATABASE_PORT: null
+            DATABASE_SSL: 'false'
+        # volumes:
+        #     - ./src:/usr/app/src  # mount current src to container for hot reload
+
+        ports:
+            - '8519:3000'
+
+        depends_on:
+            - mongodb
+
+        networks:
+            - production
+
+    mongodb:
+        image: mongo:4.2.7
+
+        container_name: mongodb_container
+
+        #    restart: unless-stopped
+        #    command: mongod --auth
+        command: mongod
+
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: alight-mongo-root-pwd
+            # MONGO_INITDB_DATABASE: veedee
+            MONGODB_DATA_DIR: /data/db
+            MONDODB_LOG_DIR: /dev/null
+
+        ports:
+            - '8520:27017'
+
+        volumes:
+            - mongodbdata:/data/db
+
+        networks:
+            - production
+
+networks:
+    production:
+        driver: bridge
+
+volumes:
+    mongodbdata:
+        driver: local

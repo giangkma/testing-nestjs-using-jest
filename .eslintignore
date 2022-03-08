@@ -1,0 +1,16 @@
+nest-cli.json
+package*.json
+yarn.lock
+tsconfig.json
+tsconfig.build.json
+.prettierrc
+
+node_modules/**
+
+dist/**
+
+.vscode/**
+
+# test config
+test/*.config.js
+jest.config.js
